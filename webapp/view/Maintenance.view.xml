@@ -1,0 +1,187 @@
+<mvc:View controllerName="com.ennovi.pm.maintenance.controller.Maintenance"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns="sap.m"
+    xmlns:f="sap.f"
+    xmlns:core="sap.ui.core"
+    xmlns:t="sap.ui.table"
+    xmlns:fb="sap.ui.comp.filterbar">
+    <f:DynamicPage>
+        <!-- DynamicPage Header -->
+        <f:header>
+            <f:DynamicPageHeader pinnable="false">
+                <f:content>
+                    <fb:FilterBar useToolbar="false"  showFilterConfiguration="false">
+                        <fb:filterGroupItems>
+                            <fb:FilterGroupItem groupName="Group1" name="schedServiceDates" label="{i18n>schedServiceDates}" visibleInFilterBar="true">
+                                <fb:control>
+                                    <DatePicker></DatePicker>
+                                </fb:control>
+                            </fb:FilterGroupItem>
+                            <fb:FilterGroupItem groupName="Group1" name="actualServiceDate" label="{i18n>actualServiceDate}" visibleInFilterBar="true">
+                                <fb:control>
+                                    <DatePicker></DatePicker>
+                                </fb:control>
+                            </fb:FilterGroupItem>
+                            <fb:FilterGroupItem groupName="Group1" name="deviceType" label="{i18n>deviceType}" visibleInFilterBar="true">
+                                <fb:control>
+                                    <ComboBox  >
+                                        <items>
+                                            <core:Item key="1" text="deviceType"></core:Item>
+                                        </items>
+                                    </ComboBox>
+                                </fb:control>
+                            </fb:FilterGroupItem>
+                            <fb:FilterGroupItem groupName="Group1" name="equipDivision" label="{i18n>equipDivision}" visibleInFilterBar="true">
+                                <fb:control>
+                                    <ComboBox  >
+                                        <items>
+                                            <core:Item key="1" text="equipDivision"></core:Item>
+                                        </items>
+                                    </ComboBox>
+                                </fb:control>
+                            </fb:FilterGroupItem>
+                            <fb:FilterGroupItem groupName="Group1" name="equipNo" label="{i18n>equipNo}" visibleInFilterBar="true">
+                                <fb:control>
+                                    <ComboBox  >
+                                        <items>
+                                            <core:Item key="1" text="equipNo"></core:Item>
+                                        </items>
+                                    </ComboBox>
+                                </fb:control>
+                            </fb:FilterGroupItem>
+                            <fb:FilterGroupItem groupName="Group1" name="deviceName" label="{i18n>deviceName}" visibleInFilterBar="true">
+                                <fb:control>
+                                    <ComboBox >
+                                        <items>
+                                            <core:Item key="1" text="deviceName"></core:Item>
+                                        </items>
+                                    </ComboBox>
+                                </fb:control>
+                            </fb:FilterGroupItem>
+                            <fb:FilterGroupItem groupName="Group1" name="deviceEncoding" label="{i18n>deviceEncoding}" visibleInFilterBar="true">
+                                <fb:control>
+                                    <ComboBox  >
+                                        <items>
+                                            <core:Item key="1" text="deviceEncoding"></core:Item>
+                                        </items>
+                                    </ComboBox>
+                                </fb:control>
+                            </fb:FilterGroupItem>
+                             <fb:FilterGroupItem groupName="Group1" name="technician" label="{i18n>technician}" visibleInFilterBar="true">
+                                <fb:control>
+                                    <ComboBox  >
+                                        <items>
+                                            <core:Item key="1" text="technician"></core:Item>
+                                        </items>
+                                    </ComboBox>
+                                </fb:control>
+                            </fb:FilterGroupItem>
+                            <fb:FilterGroupItem groupName="Group1" name="maintClassification" label="{i18n>maintClassification}" visibleInFilterBar="true">
+                                <fb:control>
+                                    <ComboBox  >
+                                        <items>
+                                            <core:Item key="1" text="maintClassification"></core:Item>
+                                        </items>
+                                    </ComboBox>
+                                </fb:control>
+                            </fb:FilterGroupItem>
+                        </fb:filterGroupItems>
+                    </fb:FilterBar>
+                </f:content>
+            </f:DynamicPageHeader>
+        </f:header>
+        <!-- DynamicPage Content -->
+        <f:content>
+            	<t:Table rows="{MaintModel>/Data}" selectionMode="None"  visibleRowCount="7">
+					<t:columns>
+						<t:Column width="14rem" resizable="false">
+							<Label text="{i18n>maintPlanNo}"  />
+							<t:template>
+								<Text text="{MaintModel>maintPlanNo}" wrapping="false" />
+							</t:template>
+						</t:Column>
+                        <t:Column resizable="false" width="10rem">
+							<Label text="{i18n>equipNO}" />
+							<t:template>
+								<Text text="{MaintModel>equipNO}" wrapping="false" />
+							</t:template>
+						</t:Column>
+                        <t:Column resizable="false" width="10rem">
+							<Label text="{i18n>equipNO2}" />
+							<t:template>
+								<Text text="{MaintModel>equipNO2}" wrapping="false" />
+							</t:template>
+						</t:Column>
+                        <t:Column resizable="false" width="13rem">
+							<Label text="{i18n>equipDesc}" />
+							<t:template>
+								<Text text="{MaintModel>equipDesc}" wrapping="false" />
+							</t:template>
+						</t:Column>
+                        <t:Column resizable="false" width="13rem">
+							<Label text="{i18n>equipDept}" />
+							<t:template>
+								<Text text="{MaintModel>equipDept}" wrapping="false" />
+							</t:template>
+						</t:Column>
+                        <t:Column resizable="false" width="20rem" hAlign="End">
+							<Label text="{i18n>equipMaintFrequencyValue}" />
+							<t:template>
+								<Text text="{MaintModel>equipMaintFrequencyValue}" wrapping="false" />
+							</t:template>
+						</t:Column>
+                        <t:Column resizable="false" width="15rem">
+							<Label text="{i18n>plan}" />
+							<t:template>
+								<Text text="{MaintModel>plan}" wrapping="false" />
+							</t:template>
+						</t:Column>
+                        <t:Column resizable="false" width="15rem">
+							<Label text="{i18n>schedMaintDates}" />
+							<t:template>
+								<Text text="{MaintModel>schedMaintDates}" wrapping="false" />
+							</t:template>
+						</t:Column>
+                        <t:Column resizable="false" width="10rem">
+							<Label text="{i18n>equipType}" />
+							<t:template>
+								<Text text="{MaintModel>equipType}" wrapping="false" />
+							</t:template>
+						</t:Column>
+                        <t:Column resizable="false" width="13rem" >
+							<Label text="{i18n>respGroupValue}" />
+							<t:template>
+								<Text text="{MaintModel>respGroupValue}" wrapping="false" />
+							</t:template>
+						</t:Column>
+                        <t:Column resizable="false" width="15rem" >
+							<Label text="{i18n>maintSubTime}" />
+							<t:template>
+								<Text text="{MaintModel>maintSubTime}" wrapping="false" />
+							</t:template>
+						</t:Column>
+                        <t:Column resizable="false" width="15rem">
+							<Label text="{i18n>maintainerName}" />
+							<t:template>
+								<Text text="{MaintModel>maintainerName}" wrapping="false" />
+							</t:template>
+						</t:Column>
+                        <t:Column resizable="false" width="13rem">
+							<Label text="{i18n>maintainerStartTime}" />
+							<t:template>
+								<Text text="{MaintModel>maintainerStartTime}" wrapping="false" />
+							</t:template>
+						</t:Column>
+                        <t:Column resizable="false" width="14rem" hAlign="End">
+							<Label text="{i18n>durationOfMaintenance}" />
+							<t:template>
+								<Text text="{MaintModel>durationOfMaintenance}" wrapping="false" />
+							</t:template>
+						</t:Column>
+                        
+						
+					</t:columns>
+				</t:Table>
+        </f:content>
+    </f:DynamicPage>
+</mvc:View>
